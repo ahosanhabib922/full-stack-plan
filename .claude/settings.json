@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Volumes/Habib/full-stack-plan && git diff --quiet .claude/commands/ || (git add .claude/commands/ && git commit -m \"update: $(git diff --cached --name-only | tr '\\n' ' ' | sed 's/ $//')\" && git push origin main)"
+          }
+        ]
+      }
+    ]
+  }
+}
